@@ -12,9 +12,9 @@ class QuizQuestion extends Component{
         if(buttonText === this.props.quiz_question.answer)
         {
             this.props.showNextQuestionHandler()
-            this.setState(this.state.incorrectAnswer = false)
+            this.setState({incorrectAnswer : false})
         }
-        else  this.setState(this.state.incorrectAnswer = true)
+        else  this.setState({incorrectAnswer : true})
     }
 
     render(props){
@@ -29,9 +29,17 @@ class QuizQuestion extends Component{
         </section>
         <section className="buttons">
           <ul>
+              <li>
             {this.props.quiz_question.answer_options.map((answer_options, index) => (
-              <li><QuizQuestionButton clickHandler={this.handleClick.bind(this)} key={index} button_text={answer_options} /></li>
-            ))}    
+                // <li>
+                    <QuizQuestionButton 
+                        clickHandler={this.handleClick.bind(this)} 
+                        key={index} 
+                        button_text={answer_options} 
+                    />
+                // </li>
+            ))}   
+            </li> 
           </ul>
         </section>
       </main> 
